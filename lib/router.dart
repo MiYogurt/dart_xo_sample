@@ -114,9 +114,9 @@ class RouterContainer extends Component {
       r.add(key, (_match) {
         var meta = _match.meta;
         if (meta == null || meta['replace'] == false) {
-          window.history.pushState({"path": _match.path}, null, _match.path);
+          window.history.pushState({"path": _match.path, "data": DateTime.now()}, null, _match.path);
         } else {
-          window.history.replaceState({"path": _match.path}, null, _match.path);
+          window.history.replaceState({"path": _match.path, "data": DateTime.now()}, null, _match.path);
         }
         var comp = callback(_match);
         if (comp != null) {
